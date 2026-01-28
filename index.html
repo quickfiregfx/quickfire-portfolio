@@ -1,330 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>QuickFire | Graphic Designer</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>QuickFire Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="Designs/blackfire.png">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+<div class="glow">Hover me</div>
 
 <style>
-:root{
-  --accent:#00e5ff;
-  --bg:#000;
-  --card:#111;
-  --text:#ccc;
-}
+  .glow {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,Helvetica,sans-serif;
-  scroll-behavior:smooth;
-}
+  .glow:hover {
+    box-shadow: 0 0 15px #ff6a00;
+    transform: scale(1.05);
+  }
 
-body{
-  background:var(--bg);
-  color:#fff;
-}
+  .fade-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
 
-/* ================= NAV ================= */
-header{
-  padding:25px 10%;
-  border-bottom:1px solid #222;
-  position:sticky;
-  top:0;
-  background:#000;
-  z-index:10;
-}
-
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-nav h2{
-  color:var(--accent);
-}
-
-nav ul{
-  list-style:none;
-  display:flex;
-  gap:25px;
-}
-
-nav a{
-  color:#fff;
-  text-decoration:none;
-  transition:.3s;
-}
-
-nav a:hover,
-nav a:focus{
-  color:var(--accent);
-}
-
-/* ================= SECTIONS ================= */
-section{
-  padding:80px 10%;
-  text-align:center;
-}
-
-h1,h2{
-  color:var(--accent);
-}
-
-p{
-  color:var(--text);
-  max-width:720px;
-  margin:15px auto;
-  line-height:1.6;
-}
-
-/* ================= HERO ================= */
-.hero{
-  min-height:70vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-/* ================= STATS ================= */
-.stats{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:25px;
-  margin-top:50px;
-}
-
-.stat{
-  background:var(--card);
-  border:2px solid var(--accent);
-  border-radius:20px;
-  padding:35px 20px;
-  box-shadow:0 0 25px rgba(0,229,255,.3);
-}
-
-.stat .num{
-  font-size:3rem;
-  color:var(--accent);
-  font-weight:bold;
-}
-
-/* ================= PORTFOLIO ================= */
-.portfolio a{
-  display:inline-block;
-  margin-top:30px;
-  padding:15px 45px;
-  border:2px solid var(--accent);
-  border-radius:30px;
-  color:var(--accent);
-  text-decoration:none;
-  transition:.3s;
-}
-
-.portfolio a:hover{
-  background:var(--accent);
-  color:#000;
-}
-
-/* ================= CONTACT ================= */
-.contact-box{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:40px;
-  margin-top:50px;
-}
-
-.spark{
-  font-size:1.6rem;
-  color:var(--accent);
-}
-
-form{
-  background:var(--card);
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 0 25px rgba(0,229,255,.3);
-}
-
-label{
-  display:block;
-  text-align:left;
-  margin-bottom:5px;
-  font-size:.9rem;
-  color:#aaa;
-}
-
-input,textarea{
-  width:100%;
-  padding:12px;
-  margin-bottom:15px;
-  background:#000;
-  border:1px solid var(--accent);
-  color:#fff;
-  border-radius:8px;
-}
-
-button{
-  width:100%;
-  padding:12px;
-  background:var(--accent);
-  border:none;
-  border-radius:25px;
-  font-weight:bold;
-  cursor:pointer;
-  transition:.3s;
-}
-
-button:hover{
-  opacity:.85;
-}
-
-/* ================= SOCIALS ================= */
-.socials{
-  margin-top:40px;
-}
-
-.socials a{
-  display:inline-block;
-  margin:10px;
-  padding:12px 25px;
-  border:2px solid var(--accent);
-  border-radius:25px;
-  color:var(--accent);
-  text-decoration:none;
-  transition:.3s;
-}
-
-.socials a:hover{
-  background:var(--accent);
-  color:#000;
-}
-
-/* ================= FOOTER ================= */
-footer{
-  padding:25px;
-  text-align:center;
-  border-top:1px solid #222;
-  color:#777;
-}
+  .fade-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 </style>
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .nav-link {
+      position: relative;
+      font-weight: 500;
+      color: #cbd5f5;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover { color: white; }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #ffc300, #ff4800);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after { width: 100%; }
+
+    .mobile-link {
+      padding: 0.75rem 0;
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+  </style>
 </head>
 
-<body>
+<body class="bg-slate-950 text-white overflow-x-hidden">
 
-<header>
-<nav aria-label="Main Navigation">
-  <h2>QuickFire</h2>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+<!-- ================= NAVBAR ================= -->
+<nav id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+  <div class="backdrop-blur-xl bg-slate-950/70">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <a href="#home" class="text-xl font-bold">
+          <span class="text-white">Quick</span><span class="text-orange-400">Fire</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#portfolio" class="nav-link">Portfolio</a>
+          <a href="#social" class="nav-link">Contact</a>
+        </div>
+
+        <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-white/10">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="hidden bg-slate-950/95 backdrop-blur-xl border-b border-white/10 md:hidden">
+    <div class="px-6 py-4 flex flex-col gap-4">
+      <a href="#home" class="mobile-link">Home</a>
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#services" class="mobile-link">Services</a>
+      <a href="#portfolio" class="mobile-link">Portfolio</a>
+      <a href="#social" class="mobile-link">Contact</a>
+    </div>
+  </div>
 </nav>
-</header>
 
-<main>
+<!-- ================= HERO ================= -->
+<section id="home" class="min-h-screen flex items-center justify-center text-center px-6 relative">
+<div class="absolute inset-0 bg-gradient-to-b" style="background: linear-gradient(to bottom, var(--hero-color-1, #010016), var(--hero-color-2, #001536))"></div>
 
-<section id="home" class="hero">
-  <div>
-    <h1>Hey there! I'm QuickFire</h1>
-    <p>
-      I’m a Graphic Designer creating bold, creative visuals that turn ideas into reality.
-      Let’s build something unforgettable.
+  <div class="relative z-10 max-w-4xl fade-scroll">
+    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-orange-500/20 mb-6">
+      <i data-lucide="sparkles" class="w-4 h-4 text-orange-400"></i>
+      <span class="text-sm text-orange-300">Graphic Designer</span>
+    </span>
+
+    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
+      Creative
+      <span class="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-400">
+        Grapchic Designer
+      </span>
+    </h1>
+
+    <p class="text-slate-400 text-lg max-w-2xl mx-auto mb-10">
+      Creating stunning visuals that captivate and inspire. Let's bring your ideas to life with vibrant designs and bold creativity.
     </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#portfolio" class="px-8 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-red-500 font-semibold shadow-lg; transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50;">
+        View Portfolio →
+      </a>
+      <a href="#social" class="px-8 py-4 rounded-full border border-white/20 hover:bg-white/5; transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50;">
+        Contact Me
+      </a>
+    </div>
   </div>
 </section>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    I’ve worked with content creators like SnakeThug, Tobsi, Kevu and brands such as AQL,
-    NEXO, BDS, and more — generating over <strong>3M views</strong> worldwide.
-  </p>
+<!-- ================= ABOUT ================= -->
+<section id="about" class="py-20 bg-slate-900 px-6 fade-scroll" style="background-color: #000820;">
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+    <img src="fire!.jpg" class="rounded-3xl shadow-xl">
+    <div>
+      <h2 class="text-4xl font-bold mb-6">About <span class="text-orange-400" style="color: var(--portfolio-color, #ffa100);">Me</span></h2>
+      <p class="text-slate-400 mb-8">
+        I'm a Graphic Designer that has worked for many Content Creators, like SnakeThug, Tobsi, Kevu, Radan, etc. Which I have made over 3M clicks.
+I also have worked with many eSports teams such as AQL, Nexo, LE, etc.
+      </p>
 
-  <div class="stats">
-    <div class="stat"><div class="num"><span class="counter" data-target="75">0</span>+</div>Clients</div>
-    <div class="stat"><div class="num"><span class="counter" data-target="1">0</span>+</div>Years Experience</div>
-    <div class="stat"><div class="num"><span class="counter" data-target="3">0</span>M+</div>Views</div>
-    <div class="stat"><div class="num"><span class="counter" data-target="500">0</span>+</div>Projects</div>
+      <div class="grid grid-cols-3 gap-6 text-center">
+        <div class="p-4 bg-white/5 rounded-xl glow"><p class="text-3xl font-bold text-orange-400">1+</p><p class="text-sm text-slate-400">Years</p></div>
+        <div class="p-4 bg-white/5 rounded-xl glow"><p class="text-3xl font-bold text-orange-400">200+</p><p class="text-sm text-slate-400">Projects</p></div>
+        <div class="p-4 bg-white/5 rounded-xl glow"><p class="text-3xl font-bold text-orange-400">75+</p><p class="text-sm text-slate-400">Clients</p></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="portfolio" class="portfolio">
-  <h2>Portfolio</h2>
-  <p>Explore my work hosted on my server.</p>
-  <a href="https://discord.gg/FkBjNVU6Wg" target="_blank" rel="noopener">Visit Portfolio</a>
-</section>
+<!-- ================= SERVICES ================= -->
+<section id="services" class="py-20 bg-slate-900 px-6 fade-scroll" style="background-color: #001536;">
+  <div class="max-w-6xl mx-auto text-center mb-16">
+    <h2 class="text-4xl font-bold">My <span class="text-orange-400" style="color: var(--portfolio-color, #ffa100);">Services</span></h2>  </div>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Let’s build something unforgettable.</p>
+  <div class="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="p-6 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-orange-400 transition-all duration-300; transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50; glow"><h3 style="color:#ffc300; font-weight: bold;">Thumbnails</h3><h5>Eye-catching thumbnails that boost your click-through rates and engagement.</h5>
+</div>
+    <div class="p-6 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-orange-400 transition-all duration-300; transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50; glow"><h3 style="color:#ffc300; font-weight: bold;">Profile Pictures</h3><h5>Stand out with a unique, professionally designed avatar that represents your brand identity.</h5></div>
+    <div class="p-6 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-orange-400 transition-all duration-300; transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50; glow"><h3 style="color:#ffc300; font-weight: bold;">Banners</h3><h5>Dynamic banners that make a lasting impression across all platforms.</h5></div>
+    <div class="p-6 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-orange-400 transition-all duration-300; transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50; glow"><h3 style="color:#ffc300; font-weight: bold;">Headers</h3><h5>Professional headers that elevate your social media and web presence.</h5></div>
+    <div class="p-6 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-orange-400 transition-all duration-300; transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50; glow"><h3 style="color:#ffc300; font-weight: bold;">Logos</h3><h5>Memorable logos that define your brand and leave a lasting impression.</h5></div>
+    <div class="p-6 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-orange-400 transition-all duration-300; transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50; glow"><h3 style="color:#ffc300; font-weight: bold;">Branding</h3><h5>Complete branding solutions that unify your visual identity.</h5></div>
+    <div class="p-6 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-orange-400 transition-all duration-300; transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50; glow"><h3 style="color:#ffc300; font-weight: bold;">Posters</h3><h5>Eye-catching posters for events, promotions, and campaigns.</h5></div>
+    <div class="p-6 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-orange-400 transition-all duration-300; transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50; glow"><h3 style="color:#ffc300; font-weight: bold;">Renders</h3><h5>High-quality renders for your projects and presentations.</h5></div>
+    <div class="p-6 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-orange-400 transition-all duration-300; transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50; glow"><h3 style="color:#ffc300; font-weight: bold;">Wallpapers</h3><h5>Stunning wallpapers that enhance your digital experience.</h5></div>
 
-  <div class="contact-box">
-    <div class="spark">I’m excited to create a spark with you!</div>
-
-    <form aria-label="Contact Form">
-      <label for="name">Name</label>
-      <input id="name" type="text" placeholder="Your Name" required>
-
-      <label for="email">Email</label>
-      <input id="email" type="email" placeholder="Your Email" required>
-
-      <label for="subject">Subject</label>
-      <input id="subject" type="text" placeholder="Subject">
-
-      <label for="message">Message</label>
-      <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
-
-  <div class="socials">
-    <a href="#">Discord DM</a>
-    <a href="#">Twitter</a>
   </div>
 </section>
 
-</main>
+<!-- ================= PORTFOLIO ================= -->
+<section id="portfolio" class="py-20 bg-slate-900 px-6 fade-scroll" style="background-color: #000820;">
+  <div class="max-w-6xl mx-auto text-center mb-12">
+    <h2 class="text-4xl font-bold">My <span class="text-orange-400" style="color: var(--portfolio-color, #ffa100);">Work</span></h2>
+  </div>
 
-<footer>
-  © <span id="year"></span> QuickFire. All Rights Reserved.
-</footer>
+  <div class="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50;">
+      <img src="Designs/Minecraft Thumbnail.JPG" class="rounded-xl w-full h-auto">
+    </div>
+    <div class="transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50;">
+    <img src="Designs/Mini games Thumbnail Tobsi.PNG" class="rounded-xl">
+    </div>
+    <div class="transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50;">
+      <img src="Designs/Legy that was never reached Stream Thumbnail.PNG" class="rounded-xl">
+    </div>
+    <div class="transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50;">
+      <img src="Designs/Janet RIP Thumbnail .PNG" class="rounded-xl">
+    </div>
+    <div class="transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50;">
+      <img src="Designs/Thumbnail for Glowz.JPG" class="rounded-xl">
+    </div>
+    <div class="transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50;">
+      <img src="Designs/Banner GALAXY.PNG" class="rounded-xl">
+    </div>
+    <div class="transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50;">
+      <img src="Designs/Apollo poster.PNG" class="rounded-xl">
+    </div>
+    <div class="transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50;">
+      <img src="Designs/Nexo branding.png" class="rounded-xl">
+    </div>
+    <div class="transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50;">
+      <img src="Designs/Qualified Poster for AQL eSports.JPG" class="rounded-xl">
+    </div>
+    <div class="transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50;">
+      <img src="Designs/Banner anime NEXUS.png" class="rounded-xl">
+    </div>
+    <div class="transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50;">
+      <img src="Designs/Yashy Banner eSports.PNG" class="rounded-xl">
+    </div>
+    <div class="transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50;">
+      <img src="Designs/narutooo.png" class="rounded-xl">
+    </div>
+    <div class="transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50;">
+      <img src="Designs/Roster REVA.PNG" class="rounded-xl">
+    </div>
+    <div class="transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50;">
+      <img src="Designs/puffyland.jpg" class="rounded-xl">
+    </div>
+    <div class="transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-black/50;">
+      <img src="Designs/xmas le.jpg" class="rounded-xl">
+    </div>
 
+  </div>
+</section>
+
+<!-- ================= SOCIAL ================= -->
+<section id="social" class="py-20 bg-slate-950 px-6 fade-scroll" style="background-color: #001536;">
+  <div class="max-w-4xl mx-auto text-center mb-12">
+    <h2 class="text-4xl font-bold">Find Me <span class="text-orange-400" style="color: var(--portfolio-color, #ffa100);">Online</span></h2>
+  </div>
+
+  <div class="max-w-4xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <a href="https://discord.com/users/1428774095721467976" class="p-6 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-orange-400 transition-all duration-300; glow">Discord</a>
+    <a href="https://x.com/Quickfire_98" class="p-6 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-orange-400 transition-all duration-300; glow">Twitter</a>
+    <a href="https://www.behance.net/quickfirebsthumbnail" class="p-6 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-orange-400 transition-all duration-300; glow">Behance</a>
+  </div>
+</section>
+
+<!-- ================= JS ================= -->
 <script>
-/* Auto Year */
-document.getElementById("year").textContent = new Date().getFullYear();
+  lucide.createIcons();
 
-/* Counter Animation on View */
-const counters = document.querySelectorAll('.counter');
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const navbar = document.getElementById('navbar');
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      const counter = entry.target;
-      const target = +counter.dataset.target;
-      let current = 0;
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
 
-      const update = () => {
-        current += target / 120;
-        if(current < target){
-          counter.textContent = Math.ceil(current);
-          requestAnimationFrame(update);
-        } else {
-          counter.textContent = target;
-        }
-      };
-
-      update();
-      observer.unobserve(counter);
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navbar.classList.add('shadow-lg', 'shadow-black/30');
+    } else {
+      navbar.classList.remove('shadow-lg', 'shadow-black/30');
     }
   });
-},{ threshold:0.5 });
 
-counters.forEach(c => observer.observe(c));
+  // Fade-scroll effect
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-scroll').forEach(element => {
+    observer.observe(element);
+  });
 </script>
 
 </body>
